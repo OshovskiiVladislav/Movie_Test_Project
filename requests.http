@@ -1,0 +1,11 @@
+### "Index page"
+GET http://localhost:8080/movie/actuator
+
+### Собственный healthcheck
+GET http://localhost:8080/movie/actuator/health
+
+### Список метрик
+GET http://localhost:8080/movie/actuator/metrics
+
+### Состояние подключений к БД
+GET http://localhost:8080/movie/actuator/metrics/hikaricp.connections.usage
