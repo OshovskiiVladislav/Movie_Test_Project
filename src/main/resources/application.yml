@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /movie
+
+spring:
+
+  application:
+    name: movie
+
+  jpa:
+    show-sql: true
+    database: postgresql
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/movieapp
+    username: postgres
+    password: postgres
+
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    default-schema: public
+
+  endpoint:
+    health:
+      show-details: always
+
+  health:
+    defaults:
+      enabled: true
+
+  cache:
+    type: simple
+    time-to-live: PT1M
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, metrics"
+
+###https://kinopoisk.dev/
+kinopoisk:
+  token: PEP0RGM-X3Q4KH5-NPAD2QQ-21AW7FM
+  limit: 50
+  url:
+    general: https://api.kinopoisk.dev

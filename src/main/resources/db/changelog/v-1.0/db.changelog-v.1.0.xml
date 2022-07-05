@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="01-changeset-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="10-changeset-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="20-changeset-users_roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="30-changeset-movies-table.xml" relativeToChangelogFile="true"/>
+    <include file="40-changeset-users_movies-table.xml" relativeToChangelogFile="true"/>
+    <include file="50-changeset-insert-roles.xml" relativeToChangelogFile="true"/>
+    <include file="60-changeset-insert-users.xml" relativeToChangelogFile="true"/>
+    <include file="70-changeset-insert-users_roles.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>
