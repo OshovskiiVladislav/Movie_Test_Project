@@ -21,14 +21,14 @@ public class UserControllerImpl implements UserController {
     private final UserService userService;
     private final ModelMapper modelMapper;
 
-    @PostMapping("/update/username")
+    @PostMapping("/username")
     public UserDto updateUsername(@RequestBody UpdateUserUsernameRequest request) {
         log.info(String.format("[ updateUsername() ] Received UpdateUserUsernameRequest: %s", request));
         User updatedUser = userService.updateUsername(request);
         return modelMapper.map(updatedUser, UserDto.class);
     }
 
-    @PostMapping("/update/name")
+    @PostMapping("/name")
     public UserDto updateName(@RequestBody UpdateUserNameRequest request) {
         log.info(String.format("[ updateName() ] Received UpdateUserNameRequest: %s", request));
         User updatedUser = userService.updateName(request);
@@ -41,7 +41,7 @@ public class UserControllerImpl implements UserController {
         userService.deleteById(userId);
     }
 
-    @PutMapping("/favorite/add/{movieId}")
+    @PutMapping("/favorite/{movieId}")
     public MovieDto addMovieToFavorite(@PathVariable Long movieId, @RequestHeader(name = "User-Id") String userId) {
         log.info(String.format(
                 "[ addMovieToFavorite() ] Received movie id: %d and header User-Id: %s", movieId, userId)
@@ -50,7 +50,7 @@ public class UserControllerImpl implements UserController {
         return modelMapper.map(movie, MovieDto.class);
     }
 
-    @DeleteMapping("/favorite/del/{movieId}")
+    @DeleteMapping("/favorite/{movieId}")
     public void deleteMovieFromFavorite(@PathVariable Long movieId, @RequestHeader(name = "User-Id") String userId) {
         log.info(String.format(
                 "[ deleteMovieFromFavorite() ] Received movie id: %d and header User-Id: %s", movieId, userId)

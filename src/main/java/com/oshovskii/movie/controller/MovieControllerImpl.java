@@ -35,7 +35,7 @@ public class MovieControllerImpl implements MovieController {
         return movieService.findAll(page, size).map(movie -> modelMapper.map(movie, MovieDto.class));
     }
 
-    @GetMapping("/favorite/not")
+    @GetMapping("/not_favorite")
     public List<MovieDto> findAllMoviesNotFavorite(@RequestParam(name = "loaderType") String loaderType,
                                                    @RequestHeader(name = "User-Id") String userId) {
 
